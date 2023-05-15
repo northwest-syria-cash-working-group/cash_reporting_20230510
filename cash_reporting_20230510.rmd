@@ -252,7 +252,8 @@ cbr  %>%
 #  footnote(i = 1, j = 6, part = "header", ref_symbols = "a",
 #           as_paragraph("Beneficiary figures include only reported MPC with a minimum transfer value #of USD 100")) %>% 
   footnote(i = 1, j = 8, part = "header", ref_symbols = "1",  
-           as_paragraph("As percentage of all MPC beneficiaries reached in NW Syria")) 
+           as_paragraph("As percentage of all MPC beneficiaries reached in NW Syria")) %>% 
+  set_table_properties(layout = "autofit", width = .99)
 
 
 
@@ -888,7 +889,7 @@ cbr %>%
   flextable() %>% 
   set_caption("Reach and footprint of cash response actors") %>% 
   theme_zebra() %>% 
-  set_table_properties(layout = "autofit", width = .8) %>% 
+  set_table_properties(layout = "autofit", width = .99) %>% 
   footnote(as_paragraph("Only partners who provided more than USD 100/family/month"), 
            i = 1, j = 1, part = "header", inline = TRUE, ref_symbols = "1")
   
@@ -953,7 +954,7 @@ cbr %>%
   flextable() %>% 
   set_caption("USD disbursed and families reached by partner") %>% 
   theme_zebra() %>% 
-  flextable::set_table_properties(layout = "autofit", width = .8)
+  flextable::set_table_properties(layout = "autofit", width = .99)
 ```
 
 <br>

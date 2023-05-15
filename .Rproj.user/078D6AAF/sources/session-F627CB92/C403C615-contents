@@ -231,7 +231,8 @@ cbr  %>%
 #  footnote(i = 1, j = 6, part = "header", ref_symbols = "a",
 #           as_paragraph("Beneficiary figures include only reported MPC with a minimum transfer value #of USD 100")) %>% 
   footnote(i = 1, j = 8, part = "header", ref_symbols = "1",  
-           as_paragraph("As percentage of all MPC beneficiaries reached in NW Syria")) 
+           as_paragraph("As percentage of all MPC beneficiaries reached in NW Syria")) %>% 
+  fontsize(size = 9, part = "header")
 
 
 
@@ -474,7 +475,8 @@ eq %>%
   set_table_properties(layout = "autofit", width = .99) %>% 
   set_caption("Casualties and damaged houses, absolute figures and per 100,000 persons") %>% 
   footnote(part = "header", i = 1, j = 3:6, inline = TRUE, ref_symbols = "1",
-           value = as_paragraph("Data from the Assistance Coordination Unit, Syria 20230328"))
+           value = as_paragraph("Data from the Assistance Coordination Unit, Syria 20230328")) %>% 
+  fontsize(size = 8, part = "header")
 ```
 
 <br>
@@ -498,7 +500,8 @@ cbr %>%
   flextable() %>% 
   set_caption("More than twice as many beneficiaries from villages as from camps") %>% 
   theme_zebra() %>%
-  set_table_properties(layout = "autofit", width = .6)
+  set_table_properties(layout = "autofit", width = .6) %>% 
+  fontsize(size = 9, part = "header")
   
 ```
 
@@ -814,7 +817,8 @@ cbr %>%
   flextable() %>% 
   set_caption("14 partners have reported planned activities") %>%
   theme_zebra() %>%
-  set_table_properties(layout = "autofit", width = .6)
+  set_table_properties(layout = "autofit", width = .6) %>% 
+  fontsize(size = 9, part = "header")
 ```
 
 <br>
@@ -843,7 +847,8 @@ cbr %>%
   set_caption("Planned beneficiaries by month") %>% 
   footnote(i = 1, j = 1, inline = TRUE, ref_symbols = "1", part = "header",
            value = as_paragraph("Some dates are missing or improperly encoded")) %>% 
-  set_table_properties(layout = "autofit", width = .5)
+  set_table_properties(layout = "autofit", width = .5) %>% 
+  fontsize(size = 9, part = "header")
 ```
 
 
@@ -871,7 +876,8 @@ cbr %>%
   theme_zebra() %>% 
   set_table_properties(layout = "autofit", width = .8) %>% 
   footnote(as_paragraph("Only partners who provided more than USD 100/family/month"), 
-           i = 1, j = 1, part = "header", inline = TRUE, ref_symbols = "1")
+           i = 1, j = 1, part = "header", inline = TRUE, ref_symbols = "1") %>% 
+  fontsize(size = 9, part = "header")
   
 ```
 
@@ -879,7 +885,7 @@ cbr %>%
 
 In the scatterplot below, each point is a single cash working group partner. The x-axis indicates the number of beneficiary frequencies reached per agency and the y-axis indicates the number of communities (admin4) reached. Mouse over each point for more details.
 
-This is a static version of the original interactive plot, which can be accessed [here](https://northwest-syria-cash-working-group.github.io/cash_reporting_20230510/#map-of-activities).
+This is a static version of the original interactive plot, which can be accessed [here](https://northwest-syria-cash-working-group.github.io/cash_reporting_20230510/#htmlwidget-c2608666214c3cbdc1a2).
 
 <br>
 
@@ -915,7 +921,9 @@ partner_scatter <- cbr %>%
 
 
 
-<br><br>
+<br><br>   
+
+\newpage
 
 ### 4.1 USD disbursed per partner
 
@@ -936,7 +944,8 @@ cbr %>%
   flextable() %>% 
   set_caption("USD disbursed and families reached by partner") %>% 
   theme_zebra() %>% 
-  flextable::set_table_properties(layout = "autofit", width = .8)
+  flextable::set_table_properties(layout = "autofit", width = .8) %>% 
+  fontsize(size = 9, part = "header") 
 ```
 
 <br>
@@ -959,9 +968,11 @@ Columns include:
 `damaged houses`, `damaged houses per 100k`, 
 `admin3pcode`
 
+This interactive table does not work in a PDF. Please access it online [here](https://northwest-syria-cash-working-group.github.io/cash_reporting_20230510/#interactive-reference-table-at-sub-district-level).
+
 <br>
 
-```{r}
+```{r eval = FALSE}
 eq %>% 
   left_join(locations %>% distinct(admin3pcode, 
                                  sub_district = admin3name_en,
