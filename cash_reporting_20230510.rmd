@@ -873,7 +873,7 @@ cbr %>%
 # 4. Cash response actors and cash disbursed
 
 
-USD **`r paste(round(cbr %>% filter(project_status == "Completed") %>% {sum(.$total_usd, na.rm = TRUE)} / 1000000, digits = 1), "million")`** has been distributed across **`r cbr %>% filter(project_status == "Completed") %>% {n_distinct(.$admin4pcode)}`** communities and **`r cbr %>% filter(project_status == "Completed") %>% {n_distinct(.$admin3pcode)}`** sub-districts in NW Syria.
+USD **`r paste(round(cbr %>% filter(project_status == "Completed" & str_detect(cluster, "Multipurpose")) %>% {sum(.$total_usd, na.rm = TRUE)} / 1000000, digits = 1), "million")`** has been distributed across **`r cbr %>% filter(project_status == "Completed") %>% {n_distinct(.$admin4pcode)}`** communities and **`r cbr %>% filter(project_status == "Completed") %>% {n_distinct(.$admin3pcode)}`** sub-districts in NW Syria.
 
 <br>
 
