@@ -839,7 +839,7 @@ cbr %>%
 
 <br>
 
-The sum of planned beneficiaries is **`r format(filter(cbr, project_status == "Planned" & str_detect(cluster, "Multipurpose")) %>% {sum(.$beneficiaries)}, big.mark = ",")`**. If this is the extent of all planned MPC activities, the CWG as a whole can expect to reach **`r round((cbr %>% filter(project_status != "Suspended" & str_detect(cluster, "Multipurpose") & previously_assisted == "No") %>% {sum(.$beneficiaries)}) / 662924 * 100, digits = 0)`%** of its target of **662,924************ persons. But whilst the scale of achievements is important, it is also key to ensure that allocations are fair. 
+The sum of planned beneficiaries is **`r format(filter(cbr, project_status == "Planned" & str_detect(cluster, "Multipurpose")) %>% {sum(.$beneficiaries)}, big.mark = ",")`**. If this is the extent of all planned MPC activities, the CWG as a whole can expect to reach **`r round((cbr %>% filter(project_status != "Suspended" & str_detect(cluster, "Multipurpose") & previously_assisted == "No") %>% {sum(.$beneficiaries)}) / 662924 * 100, digits = 0)`%** of its target of **662,924** persons. But whilst the scale of achievements is important, it is also key to ensure that allocations are fair. 
 
 
 
