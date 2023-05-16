@@ -1,7 +1,7 @@
 ---
 title: "Northwest Syria Cash Working Group Earthquake Response Bulletin"
 date:  "`r format(Sys.time(), '%d %B, %Y')`"
-author: "This is a PDF of an online report. Click [here](https://northwest-syria-cash-working-group.github.io/cash_reporting_20230425/) to access it"
+author: "This is a PDF of an online report. Click [here](https://northwest-syria-cash-working-group.github.io/cash_reporting_20230510/) to access it"
 output:
   pdf_document:
     toc: yes
@@ -232,7 +232,7 @@ cbr  %>%
 #           as_paragraph("Beneficiary figures include only reported MPC with a minimum transfer value #of USD 100")) %>% 
   footnote(i = 1, j = 8, part = "header", ref_symbols = "1",  
            as_paragraph("As percentage of all MPC beneficiaries reached in NW Syria")) %>% 
-  fontsize(size = 9, part = "header")
+  fontsize(size = 8, part = "header")
 
 
 
@@ -855,6 +855,8 @@ cbr %>%
 
 <br><br><br>
 
+\newpage
+
 # 4. Cash response actors and cash disbursed
 
 
@@ -874,25 +876,28 @@ cbr %>%
   flextable() %>% 
   set_caption("Reach and footprint of cash response actors") %>% 
   theme_zebra() %>% 
-  set_table_properties(layout = "autofit", width = .8) %>% 
+  set_table_properties(layout = "autofit", width = .99) %>% 
   footnote(as_paragraph("Only partners who provided more than USD 100/family/month"), 
-           i = 1, j = 1, part = "header", inline = TRUE, ref_symbols = "1") %>% 
-  fontsize(size = 9, part = "header")
+           i = 1, j = 1, part = "header", inline = TRUE, ref_symbols = "1")
   
 ```
 
 <br>
 
+\newpage
+
 In the scatterplot below, each point is a single cash working group partner. The x-axis indicates the number of beneficiary frequencies reached per agency and the y-axis indicates the number of communities (admin4) reached. Mouse over each point for more details.
 
 This is a static version of the original interactive plot, which can be accessed [here](https://northwest-syria-cash-working-group.github.io/cash_reporting_20230510/#htmlwidget-c2608666214c3cbdc1a2).
+
+
 
 <br>
 
 
 
 ```{r partner-scatter}
-partner_scatter <- cbr %>% 
+cbr %>% 
    filter(project_status == "Completed") %>% 
   group_by(implementing_partner) %>% 
   summarise(beneficiaries = sum(beneficiaries, na.rm = TRUE), 
@@ -906,7 +911,7 @@ partner_scatter <- cbr %>%
   theme(legend.position = "none") + 
   labs(x = "Beneficiary frequencies reached", 
        y = "Communities (admin4) reached", 
-       title = "Implementing partners -- beneficiaries and communities reached")
+       title = "Implementing partners -- beneficiary frequencies and communities reached")
 
 #ggplotly(partner_scatter, tooltip = c("text")) %>% 
 #  layout(showlegend = TRUE, legend = list(font = (list(size = 6)))) %>% 
@@ -924,6 +929,7 @@ partner_scatter <- cbr %>%
 <br><br>   
 
 \newpage
+
 
 ### 4.1 USD disbursed per partner
 

@@ -918,7 +918,7 @@ partner_scatter <- cbr %>%
   theme(legend.position = "none") + 
   labs(x = "Beneficiary frequencies reached", 
        y = "Communities (admin4) reached", 
-       title = "Implementing partners -- beneficiaries and communities reached")
+       title = "Implementing partners -- beneficiary frequencies and communities reached")
 
 ggplotly(partner_scatter, tooltip = c("text")) %>% 
   layout(showlegend = TRUE, legend = list(font = (list(size = 6)))) %>% 
