@@ -102,7 +102,7 @@ names_eq <- c(
   "district",
   "sub_district",
   "community",
-  "admin4",
+  "admin4pcode",
   "casualties",
   "injuries",
   "completely_destroyed_houses",
@@ -130,7 +130,7 @@ eq <- read_excel("./data/syria-earthquake-impact-20-march-2023.xlsx",
                  sheet = "DATASET") %>% 
   setNames(names_eq) %>% 
   left_join(locations %>% select(admin4pcode, admin3pcode), 
-            by = c("admin4" = "admin4pcode")) %>% 
+            by = c("admin4pcode" = "admin4pcode")) %>% 
   mutate(wounded_dead = casualties + injuries,
              damaged_houses = completely_destroyed_houses + damaged_unihabitable_houses) %>% 
       group_by(admin3pcode) %>% 
@@ -174,7 +174,8 @@ cbr <- read_csv("./data/cbr_com.csv") %>%
          # Doing this because Ar-Raqqa has never appeared before
          previously_assisted = ifelse(admin1pcode %in% c("SY11"), 
                                       "No", 
-                                      previously_assisted))
+                                      previously_assisted)) %>% 
+  mutate(distribution_date = end_date)
   
 
 hno <- read_excel("./data/2023HNO_PiN_Severity_detailedAoI_FORSHARE 15032023.xlsx", skip = 1, 
@@ -189,6 +190,7 @@ nw_pcode3 <- hno %>%
 four <- read_csv("./data/4ws.csv")
 
 ```
+
 
 
 <br><br><br>

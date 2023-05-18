@@ -314,6 +314,8 @@ The small number of beneficiaries reached earlier than February all pertained to
 
 <br><br>
 
+\newpage
+
 # 2. Map of activities
 
 This is a static version of the original interactive plot, which can be accessed [here](https://northwest-syria-cash-working-group.github.io/cash_reporting_20230510/#map-of-activities).
@@ -324,7 +326,7 @@ This is a static version of the original interactive plot, which can be accessed
 
 ```{r fig.height=7}
 
-planned_implemented_map <- cbr %>% 
+cbr %>% 
   right_join(pcode3_shape, 
              by = c("admin3pcode" = "ADM3_PCODE")) %>% 
   filter(ADM1_PCODE %in% c("SY02", "SY07", "SY11") & !is.na(beneficiaries)) %>% 

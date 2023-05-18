@@ -7,7 +7,7 @@
 "0","  ""district"","
 "0","  ""sub_district"","
 "0","  ""community"","
-"0","  ""admin4"","
+"0","  ""admin4pcode"","
 "0","  ""casualties"","
 "0","  ""injuries"","
 "0","  ""completely_destroyed_houses"","
@@ -35,7 +35,7 @@
 "0","                 sheet = ""DATASET"") %>% "
 "0","  setNames(names_eq) %>% "
 "0","  left_join(locations %>% select(admin4pcode, admin3pcode), "
-"0","            by = c(""admin4"" = ""admin4pcode"")) %>% "
+"0","            by = c(""admin4pcode"" = ""admin4pcode"")) %>% "
 "0","  mutate(wounded_dead = casualties + injuries,"
 "0","             damaged_houses = completely_destroyed_houses + damaged_unihabitable_houses) %>% "
 "0","      group_by(admin3pcode) %>% "
@@ -79,17 +79,17 @@
 "0","         # Doing this because Ar-Raqqa has never appeared before"
 "0","         previously_assisted = ifelse(admin1pcode %in% c(""SY11""), "
 "0","                                      ""No"", "
-"0","                                      previously_assisted))"
-"0","  "
-"0",""
-"0","hno <- read_excel(""./data/2023HNO_PiN_Severity_detailedAoI_FORSHARE 15032023.xlsx"", skip = 1, "
-"0","                  sheet = 1) %>%"
-"0","  clean_names()"
-"0",""
-"0",""
-"0","nw_pcode3 <- hno %>% "
-"0","  filter(ao_c == ""NW"") %>% "
-"0","  pull(admin3pcode)"
-"0",""
-"0","four <- read_csv(""./data/4ws.csv"")"
-"0",""
+"0","                                      previously_assisted)) %>% "
+"0","  mutate(distribution_date = end_date)"
+"1","[1m[33mError[39m in `mutate()`:[22m
+[38;5;238m[36mi[38;5;238m In argument: `distribution_date = end_date`.[39m
+[1mCaused by error:[22m
+[33m![39m object 'end_date' not found
+Backtrace:
+[90m 1. [39m... %>% mutate(distribution_date = end_date)
+[90m 3. [39m[1m[94mdplyr:::mutate.data.frame([39m[22m., distribution_date = end_date[1m[94m)[39m[22m
+[90m 4. [39mdplyr:::mutate_cols(.data, dplyr_quosures(...), by)
+[90m 6. [39mdplyr:::mutate_col(dots[[i]], data, mask, new_columns)
+[90m 7. [39mmask$eval_all_mutate(quo)
+[90m 8. [39m[1mdplyr[22m (local) eval()
+"
